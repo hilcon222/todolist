@@ -3,3 +3,8 @@
 /autom4te.cache
 /config.log
 /build
+config.status
+
+*.o
+Makefile
+todolist
