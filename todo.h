@@ -8,6 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
 #define TODO 0 // defines TODO as 0
 #define DONE 1 // defines DONE as 1
 
@@ -17,8 +20,17 @@
 #define DEL 2 // I think you can get the pattern dummy.
 #define CPL 3 // was I not clear?
 
+#define newEvent(descr) append(alloc_event(descr))
+
 typedef struct {
     char *description; /* description */
     char completed; /* whether this action was completed or not, are you dumb? */
 } todo;
+
+int append(todo*);
+void print_event(todo*);
+todo *alloc_event(char*);
+void print_events(void);
+extern todo *buf[];
+extern int newElem;
 #endif
