@@ -28,3 +28,9 @@ void remove_event(int index) {
         buf[count] = buf[count + 1];
     }
 }
+
+void remove_event(int index) {
+    if (index >= MAXSIZ) return;
+    buf[index] = NULL;
+    
+}
