@@ -7,7 +7,7 @@ todo *buf[MAXSIZ] = {NULL}; // assigns memory for a buffer. Yeah, the stack will
 int newElem = 0;
 
 int append(todo *event) {
-    if (newElem >= MAXSIZ) {
+    if (newElem >= MAXSIZ-1) {
         return false; // not enough space! YIKES!
     }
     buf[newElem++] = event;
@@ -15,9 +15,16 @@ int append(todo *event) {
 }
 
 void print_events(void) {
-    for (int count = 0; count < newElem; count++) {
-        if (buf[count] == NULL) break;
-        printf("[%3d] ", count);
-        print_event(buf[count]);
+    for (int count = 0; count < newElem; count++) { // python for loops are better
+        if (buf[count] == NULL) break; // if we stumbled upon a piece of shit exit the loop
+        printf("[%3d] ", count); // print the number of the event
+        print_event(buf[count]); // print the actual event
+    }
+}
+
+void remove_event(int index) {
+    if (buf[index] == NULL) return; // obviously you can't "delete" something that is already empty
+    for (int count = index; count < MAXSIZ; count++) { // basically rearranges all the events.
+        buf[count] = buf[count + 1];
     }
 }

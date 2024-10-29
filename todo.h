@@ -21,6 +21,7 @@
 #define CPL 3 // was I not clear?
 
 #define newEvent(descr) append(alloc_event(descr))
+#define complete(event) (event->completed = DONE)
 
 typedef struct {
     char *description; /* description */
@@ -31,6 +32,7 @@ int append(todo*);
 void print_event(todo*);
 todo *alloc_event(char*);
 void print_events(void);
+void remove_event(int);
 extern todo *buf[];
 extern int newElem;
 #endif
