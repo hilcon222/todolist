@@ -7,7 +7,7 @@ todo *buf[MAXSIZ] = {NULL}; // assigns memory for a buffer. Yeah, the stack will
 int newElem = 0;
 
 int append(todo *event) {
-    if (newElem >= MAXSIZ) {
+    if (newElem >= MAXSIZ-1) {
         return false; // not enough space! YIKES!
     }
     buf[newElem++] = event;
@@ -20,4 +20,10 @@ void print_events(void) {
         printf("[%3d] ", count);
         print_event(buf[count]);
     }
+}
+
+void remove_event(int index) {
+    if (index >= MAXSIZ) return;
+    buf[index] = NULL;
+    
 }

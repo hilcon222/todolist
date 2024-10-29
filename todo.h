@@ -31,6 +31,7 @@ int append(todo*);
 void print_event(todo*);
 todo *alloc_event(char*);
 void print_events(void);
+void remove_event(int);
 extern todo *buf[];
 extern int newElem;
 #endif
